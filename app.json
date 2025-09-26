@@ -1,4 +1,7 @@
 {
   "name": "HenAi",
-  "displayName": "HenAi"
+  "displayName": "HenAi",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-2620094529158311~3119034927"
+  }
 }
