@@ -279,6 +279,142 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  // ===== MODERN/NEW STYLES (Latest additions) =====
+  
+  // Modern Header Styles
+  modernHeader: {
+    paddingHorizontal: 24,
+    paddingVertical: 20,
+    backgroundColor: '#ffffff',
+  },
+  headerContent: {
+    alignItems: 'center',
+  },
+  modernTitle: {
+    fontSize: 32,
+    fontWeight: '800',
+    color: '#1a202c',
+    letterSpacing: -0.5,
+    marginBottom: 4,
+  },
+  modernSubtitle: {
+    fontSize: 16,
+    color: '#718096',
+    fontWeight: '500',
+  },
+  
+  // Modern Tab Styles
+  modernTabContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#f7fafc',
+    marginHorizontal: 20,
+    marginTop: 40,
+    marginBottom: 24,
+    borderRadius: 16,
+    padding: 6,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  modernTabButton: {
+    flex: 1,
+    paddingVertical: 16,
+    paddingHorizontal: 12,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+  },
+  activeModernTabButton: {
+    backgroundColor: '#4285f4',
+    shadowColor: '#4285f4',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  tabIcon: {
+    fontSize: 24,
+    marginBottom: 6,
+    opacity: 0.7,
+  },
+  activeTabIcon: {
+    opacity: 1,
+  },
+  modernTabText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#718096',
+    letterSpacing: 0.2,
+  },
+  activeModernTabText: {
+    color: '#ffffff',
+    fontWeight: '700',
+  },
+  
+  // Loading Overlay Styles
+  loadingOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 1000,
+  },
+  loadingText: {
+    color: '#ffffff',
+    fontSize: 16,
+    fontWeight: '600',
+    marginTop: 12,
+  },
+  
+  // Loading Container Styles
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 40,
+  },
+  
+  // Error Container Styles
+  errorContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 40,
+  },
+  errorText: {
+    fontSize: 16,
+    color: '#e53e3e',
+    textAlign: 'center',
+    marginBottom: 20,
+    fontWeight: '500',
+  },
+  retryButton: {
+    backgroundColor: '#4285f4',
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 8,
+  },
+  retryButtonText: {
+    color: '#ffffff',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+
+  // ===== CORE/ORIGINAL STYLES (Base components) =====
+  
   container: {
     flex: 1,
     backgroundColor: '#f5f7fa',
@@ -366,6 +502,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 4,
   },
+  
+  // Legacy Tab Styles (kept for backward compatibility)
   tabContainer: {
     flexDirection: 'row',
     backgroundColor: '#f8f9fa',
@@ -402,6 +540,7 @@ const styles = StyleSheet.create({
   activeTabText: {
     color: '#ffffff',
   },
+  
   placeholderImage: {
     width: '100%',
     height: 120,
@@ -424,133 +563,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderBottomLeftRadius: 12,
     borderBottomRightRadius: 12,
-  },
-  // Modern Header Styles
-  modernHeader: {
-    paddingHorizontal: 24,
-    paddingVertical: 20,
-    backgroundColor: '#ffffff',
-  },
-  headerContent: {
-    alignItems: 'center',
-  },
-  modernTitle: {
-    fontSize: 32,
-    fontWeight: '800',
-    color: '#1a202c',
-    letterSpacing: -0.5,
-    marginBottom: 4,
-  },
-  modernSubtitle: {
-    fontSize: 16,
-    color: '#718096',
-    fontWeight: '500',
-  },
-  // Modern Tab Styles
-  modernTabContainer: {
-    flexDirection: 'row',
-    backgroundColor: '#f7fafc',
-    marginHorizontal: 20,
-    marginTop: 40,
-    marginBottom: 24,
-    borderRadius: 16,
-    padding: 6,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  modernTabButton: {
-    flex: 1,
-    paddingVertical: 16,
-    paddingHorizontal: 12,
-    borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
-  },
-  activeModernTabButton: {
-    backgroundColor: '#4285f4',
-    shadowColor: '#4285f4',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 6,
-  },
-  tabIcon: {
-    fontSize: 24,
-    marginBottom: 6,
-    opacity: 0.7,
-  },
-  activeTabIcon: {
-    opacity: 1,
-  },
-  modernTabText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#718096',
-    letterSpacing: 0.2,
-  },
-  activeModernTabText: {
-    color: '#ffffff',
-    fontWeight: '700',
-  },
-  // Loading Overlay Styles
-  loadingOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 1000,
-  },
-  loadingText: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: '600',
-    marginTop: 12,
-  },
-  // Loading Container Styles
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 40,
-  },
-  // Error Container Styles
-  errorContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 40,
-  },
-  errorText: {
-    fontSize: 16,
-    color: '#e53e3e',
-    textAlign: 'center',
-    marginBottom: 20,
-    fontWeight: '500',
-  },
-  retryButton: {
-    backgroundColor: '#4285f4',
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-    borderRadius: 8,
-  },
-  retryButtonText: {
-    color: '#ffffff',
-    fontSize: 16,
-    fontWeight: '600',
   },
 });
 

@@ -1,24 +1,7 @@
 import { Style, StylesResponse, StylesByCategory, ApiError } from '../models/StyleModel';
-import { Platform } from 'react-native';
 
-// API Configuration - Different URLs for different platforms
-const getApiBaseUrl = () => {
-  if (__DEV__) {
-    // Development mode
-    if (Platform.OS === 'android') {
-      // Android emulator uses 10.0.2.2 to access host machine's localhost
-      return 'http://10.0.2.2:3000/api/v1';
-    } else if (Platform.OS === 'ios') {
-      // iOS simulator can use localhost
-      return 'http://localhost:3000/api/v1';
-    }
-  }
-  
-  // Production - replace with your actual server URL
-  return 'http://your-production-server.com/api/v1';
-};
-
-const API_BASE_URL = getApiBaseUrl();
+// API Configuration - Production Cloud Run URL
+const API_BASE_URL = 'https://henai-backend-b4ruhfkf3a-el.a.run.app/api/v1';
 
 class ApiService {
   private baseUrl: string;
@@ -26,8 +9,6 @@ class ApiService {
   constructor() {
     this.baseUrl = API_BASE_URL;
     console.log('🔧 ApiService initialized with URL:', this.baseUrl);
-    console.log('📱 Platform:', Platform.OS);
-    console.log('🛠️ Development mode:', __DEV__);
   }
 
   /**
