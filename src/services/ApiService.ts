@@ -61,17 +61,17 @@ class ApiService {
     try {
       const allStyles = await this.getAllStyles();
       
-      // Filter and sort styles by category
+      // Filter and sort styles by category (newest first)
       const stylesByCategory: StylesByCategory = {
         objects: allStyles
           .filter(style => style.category === 'objects' && style.isActive)
-          .sort((a, b) => a.sortOrder - b.sortOrder),
+          .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()),
         female: allStyles
           .filter(style => style.category === 'female' && style.isActive)
-          .sort((a, b) => a.sortOrder - b.sortOrder),
+          .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()),
         male: allStyles
           .filter(style => style.category === 'male' && style.isActive)
-          .sort((a, b) => a.sortOrder - b.sortOrder),
+          .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()),
       };
       
       console.log('📊 Styles by category:', {
@@ -107,10 +107,10 @@ class ApiService {
         throw new Error(data.message || `Failed to fetch ${category} styles`);
       }
       
-      // Filter active styles and sort by sortOrder
+      // Filter active styles and sort by creation date (newest first)
       const activeStyles = data.data
         .filter(style => style.isActive)
-        .sort((a, b) => a.sortOrder - b.sortOrder);
+        .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
       
       console.log(`✅ Successfully fetched ${category} styles:`, activeStyles.length);
       return activeStyles;
