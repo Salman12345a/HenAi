@@ -91,7 +91,7 @@ class ApiService {
   /**
    * Fetch styles for a specific category
    */
-  async getStylesBySpecificCategory(category: 'objects' | 'female' | 'male'): Promise<Style[]> {
+  async getStylesBySpecificCategory(category: 'objects' | 'female' | 'male' | 'kid' | 'twez' | 'teen'): Promise<Style[]> {
     try {
       console.log(`🔄 Fetching ${category} styles...`);
       

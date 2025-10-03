@@ -267,6 +267,18 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
       </ScrollView>
       
       
+      {/* Floating Action Button for Kids Categories */}
+      <TouchableOpacity
+        style={styles.floatingButton}
+        onPress={() => navigation.navigate('KidsCategories')}
+        activeOpacity={0.8}
+      >
+        <View style={styles.floatingButtonContent}>
+          <Text style={styles.floatingButtonIcon}>👶</Text>
+          <Text style={styles.floatingButtonText}>Kids</Text>
+        </View>
+      </TouchableOpacity>
+
       {/* Loading Overlay for Ad Display */}
       {isShowingAd && (
         <View style={styles.loadingOverlay}>
@@ -563,6 +575,41 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderBottomLeftRadius: 12,
     borderBottomRightRadius: 12,
+  },
+  
+  // Floating Action Button Styles
+  floatingButton: {
+    position: 'absolute',
+    bottom: 30,
+    right: 20,
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    backgroundColor: '#6C5CE7',
+    shadowColor: '#6C5CE7',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 16,
+    elevation: 12,
+    zIndex: 1000,
+  },
+  floatingButtonContent: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  floatingButtonIcon: {
+    fontSize: 24,
+    marginBottom: 2,
+  },
+  floatingButtonText: {
+    fontSize: 10,
+    fontWeight: '600',
+    color: '#ffffff',
+    textAlign: 'center',
   },
 });
 
